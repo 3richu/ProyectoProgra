@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProyectoProgra.Models.Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:darkviolet;">Carrito de compras</h1>
+
+<p>
+    <a asp-action="Create">Agregar al carrito</a>
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="wrapper">
+
+        <div class="one">
+            @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nombre)
+        </div>
+        <div class="one">
+            @Html.DisplayFor(modelItem => item.IdProductoNavigation.Nombre)
+        </div>
+        <div class="one">
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>  ________________________
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a>  ________________________
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>  ________________________
+        </div>
+    </div>
+}
